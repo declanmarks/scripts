@@ -10,7 +10,7 @@ curl -s https://syncthing.net/release-key.txt | apt-key add -
 echo "deb https://apt.syncthing.net/ syncthing release" | tee /etc/apt/sources.list.d/syncthing.list
 apt update && apt install syncthing
 
-cat << EOF > ~/test
+cat << EOF > /etc/systemd/system/syncthing@.service
 [Unit]
 Description=Syncthing - Open Source Continuous File Synchronization for %I
 Documentation=man:syncthing(1)
@@ -27,4 +27,5 @@ RestartForceExitStatus=3 4
 WantedBy=multi-user.target
 EOF
 
-systemctl daemon-reload && systemctl start syncthing@root
+systemctl daemon-reload && systemctl enable syncthing@root
+systemctl start syncthing@root
