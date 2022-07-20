@@ -10,6 +10,10 @@ mkdir -p /opt/docker-data
 echo "192.168.100.1:/mnt/tank/Docker-Data /opt/docker-data nfs rw,bg,hard,nointr,rsize=32768,wsize=32768,tcp,noatime,nodiratime,async 0 0" >> /etc/fstab
 mount -a
 
+wget https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64
+mv docker-compose-linux-x86_64 /usr/bin/docker-compose
+chmod +x /usr/bin/docker-compose
+
 sudo systemctl stop apparmor
 sudo systemctl disable apparmor
 apt remove --assume-yes --purge apparmor
