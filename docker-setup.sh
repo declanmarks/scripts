@@ -3,6 +3,7 @@
 apt update
 apt install nfs-common zsh git byobu vim
 
+ZSH= sh install.sh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sed -i 's/robbyrussell/ys/g' ~/.zshrc
 
